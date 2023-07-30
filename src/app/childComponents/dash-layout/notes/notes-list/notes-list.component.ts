@@ -13,6 +13,7 @@ import { interval, fromEvent } from 'rxjs';
 export class NotesListComponent {
   private url='http://localhost:3500/notes'
  notesList:any;
+ errorMessage:String=""
   constructor(private http: HttpClient,private datePipe:DatePipe){}
   ngOnInit() {
   this.getNotesList()
@@ -25,7 +26,8 @@ export class NotesListComponent {
       console.log(res);
       this.notesList=res;
     }, (error) => {
-     
+      this.errorMessage = error?.error?.message || 'An error occurred while creating the user.';
+
       console.error('Error fetching data:', error);
     })
     this.notesList.sort((a:any, b:any) => {

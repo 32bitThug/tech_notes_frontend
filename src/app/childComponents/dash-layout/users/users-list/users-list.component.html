@@ -1,4 +1,7 @@
-<div class="container mt-3"> 
+<div><div *ngIf="errorMessage" class="errmsg">
+  {{ errorMessage}}
+</div>
+<div class="container mt-3" *ngIf="!errorMessage"> 
 <table class="table table-bordereless table-dark table-hover">
   <thead >
     <tr>

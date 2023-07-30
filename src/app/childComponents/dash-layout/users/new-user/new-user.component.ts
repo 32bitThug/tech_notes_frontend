@@ -27,7 +27,7 @@ export class NewUserComponent {
   //   this.password = '';
   //   this.selectedRoles = ['Employee'];
   // }
-
+  
   onSubmit() {
     const newUser = {
       username: this.username,  

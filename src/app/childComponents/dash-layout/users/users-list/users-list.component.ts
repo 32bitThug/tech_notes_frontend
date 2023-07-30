@@ -12,6 +12,7 @@ import { startWith, switchMap } from 'rxjs/operators'
 export class UsersListComponent {
   private url='http://localhost:3500/users'
   userList:any;
+  errorMessage:string=""
   constructor(private http: HttpClient,private router:Router){}
   ngOnInit() {
   this.getUsersList()
@@ -26,6 +27,7 @@ export class UsersListComponent {
     }, (error) => {
      
       console.error('Error fetching data:', error);
+      this.errorMessage = error?.error?.message || 'An error occurred while creating the user.';
     })
   }
   editUser(id:string){

@@ -1,1 +1,22 @@
-<p>login works!</p>
+<section class="public">
+    <header>
+      Employee Login
+    </header>
+    <main class="login">
+      <div class="errmsg" [attr.aria-live]="'assertive'">{{ errorMessage }}</div>
+      <form class="form" (ngSubmit)="onSubmit()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" class="form__input" [(ngModel)]="username" required />
+  
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form__input" [(ngModel)]="password" required />
+  
+        <button type="submit" class="form__submit-button">Sign In</button>
+      </form>
+    </main>
+    <footer>
+      <div class="v"></div>
+      <a href="/">Back to Home</a>
+    </footer>
+  </section>
+  

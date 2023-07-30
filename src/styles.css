@@ -3,7 +3,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 
 /* || VARIABLES */
@@ -62,12 +62,12 @@
 body {
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
-  background-color: var(--BGCOLOR);
-  color: var(--COLOR);
+  background-color: var(--BGCOLOR) !important;
+  color: var(--COLOR) !important;
   background-image: url('./img/background.jpg');
-  background-size: cover;
-  background-position: top right;
-  background-blend-mode: multiply;
+  background-size: cover !important;
+  background-position: top right !important;
+  background-blend-mode: multiply !important;
 }
 
 input,
@@ -116,7 +116,7 @@ a:focus-visible {
 .login {
   flex-grow: 1;
   border-top: 2px solid var(--BORDER-COLOR);
-  border-bottom: 2px solid var(--BORDER-COLOR);
+
   padding: 1em 0;
 }
 
