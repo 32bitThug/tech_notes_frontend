@@ -11,7 +11,7 @@ import { format } from 'date-fns-tz';
 export class DashLayoutComponent implements OnInit {
   currentPath: string | undefined;
   constructor(private route:ActivatedRoute,private router: Router) { 
-    console.log('l')
+
   }
   ngOnInit() {
     this.currentPath = this.router.url;
