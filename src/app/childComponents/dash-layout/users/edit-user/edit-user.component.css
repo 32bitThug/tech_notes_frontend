@@ -1,0 +1,19 @@
+/* Custom styles for the checkbox */
+.custom-checkbox input[type="checkbox"] {
+    /* Increase the size of the checkbox */
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Custom styles for the checkbox indicator (checkmark) */
+  .custom-checkbox input[type="checkbox"]::before {
+    /* Increase the size of the checkmark */
+    font-size: 18px;
+  }
+  
+  /* Set the default state of the checkbox to checked */
+  .custom-checkbox input[type="checkbox"]:checked::before {
+    /* Replace the checkmark content with a checkmark (✓) when checked */
+    content: "\2713";
+  }
+  

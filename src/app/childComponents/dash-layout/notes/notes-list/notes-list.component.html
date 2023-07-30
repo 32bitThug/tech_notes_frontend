@@ -1,0 +1,27 @@
+<div class="container mt-3">
+    <table class="table table--notes table-borderless table-dark table-hover">
+  <thead class="table__head">
+    <tr>
+      <th scope="col">Status</th>
+      <th scope="col">Created</th>
+      <th scope="col">Updated</th>
+      <th scope="col">Title</th>
+      <th scope="col">Owner</th>
+      <th scope="col">Edit</th>
+    </tr>
+      <tbody>
+        <tr *ngFor="let item of notesList">
+          <td class="table__th note__status">
+              <span *ngIf="item.completed; else notCompleted" class="note__status--completed">Completed</span>
+            <ng-template #notCompleted ><span class="note__status--open">Open</span></ng-template>
+        </td>
+          <td>{{ formatDate(item.createdAt) }}</td>
+          <td>{{ formatDate(item.updatedAt) }}</td>
+          <td>{{ item.text}}</td>
+          <td>{{ item.username }}</td>
+          <td ><button (click)="editUser(item)" type="button" class="btn btn-link" ><i class="fas fa-edit"></i></button></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    

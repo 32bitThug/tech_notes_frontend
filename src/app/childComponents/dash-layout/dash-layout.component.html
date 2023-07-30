@@ -1,0 +1,25 @@
+
+<div><header class="dash-header">
+    <div class="dash-header__container">
+        <a href="/dash">
+            <h1 class="dash-header__title">techNotes</h1>
+        </a>
+        <nav class="dash-header__nav">
+            <!-- {/* add nav buttons later */} -->
+        </nav>
+    </div>
+</header>
+<div class="dash-container">
+    <!-- <Outlet /> -->
+</div>
+</div>
+<router-outlet></router-outlet>
+<footer class="dash-footer">
+    <ng-container *ngIf="currentPath !== '/dash'">
+        <a (click)="redirectToSomePath()">
+            <i class="fas fa-home" aria-hidden="true"></i></a>
+      </ng-container>
+    <p>Current User:</p>
+    <p>Status:</p>
+</footer>
+

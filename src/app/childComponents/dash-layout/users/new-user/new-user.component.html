@@ -1,0 +1,44 @@
+<!-- handle error for  -->
+<div *ngIf="errorMessage" class="errmsg">
+    {{ errorMessage}}
+  </div>
+<div>
+
+    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form__title-row">
+            <h1>New User</h1>
+        </div>
+        <label class="form__label" for="username">Username:<span className="nowrap">[3-20 letters]</span></label>
+        <input type="text" class="form__input" id='username' name='username' [(ngModel)]='username' required
+            pattern="^[A-Za-z]{3,20}$" autoComplete="off">
+        <div
+            *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+            <div *ngIf="loginForm.controls['username'].hasError('required')"></div>
+            <div *ngIf="loginForm.controls['username'].hasError('pattern')"></div>
+        </div>
+
+
+        <label class="form__label" for="password">Password: <span className="nowrap">[4-12 chars incl.
+                !@#$%]</span></label>
+
+        <input type="password" class="form__input" id="password" name="password" [(ngModel)]="password" required
+            pattern="^[A-z0-9!@#$%]{4,12}$">
+
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+            <div
+                *ngIf="loginForm.controls['password'].hasError('required') && loginForm.controls['password'].hasError('pattern')">
+            </div>
+        </div>
+        <div>
+            <label  class="form__label"for="roles">Roles:</label>
+        </div>
+            <select class="form__label" id="roles" name="roles" [(ngModel)]="selectedRoles" multiple>
+                <ng-container *ngFor="let role of roles">
+                    <option *ngIf="role" [value]="role">{{ role}}</option>
+                </ng-container>
+            </select>
+        
+        <button type="submit" [disabled]="!loginForm.valid"
+            class=" form__title-row form__action-buttons btn btn-link"><i class="fas fa-save"></i></button>
+    </form>
+</div>

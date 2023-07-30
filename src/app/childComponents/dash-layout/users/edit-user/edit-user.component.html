@@ -1,0 +1,40 @@
+<div><div *ngIf="errorMessage" class="errmsg">
+    {{ errorMessage}}
+  </div>
+    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form__title-row">
+            <h2>Edit User</h2>
+            <div class="form__action-buttons">
+                <button type="submit" [disabled]="!loginForm.valid" title="Save" class=" icon-button btn btn-link"><i class="fas fa-save "></i></button>
+                <button type="button" (click)="onDeleteUser()"  class=" icon-button btn btn-link"> <i class="fa-solid fa-trash-can"></i></button>
+
+            </div>
+        </div>
+        <label class="form__label" for="username">Username:<span className="nowrap">[3-20 letters]</span></label>
+        <input type="text" class="form__input" id="username" name="username" [(ngModel)]="user.username" required pattern="^[A-Za-z]{3,20}$" autoComplete="off">
+        <div *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)">
+            <div *ngIf="loginForm.controls['username'].hasError('required')">Username is required.</div>
+            <div *ngIf="loginForm.controls['username'].hasError('pattern')">Username should be 3 to 20 letters.</div>
+        </div>
+
+        <label class="form__label" for="password">Password: <span class="nowrap">[4-12 chars incl. !@#$%]</span></label>
+        <input type="password" class="form__input" id="password" name="password" [(ngModel)]="password" pattern="^[A-z0-9!@#$%]{4,12}$" autoComplete="off">
+
+        <div *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+            <div *ngIf="loginForm.controls['password'].hasError('pattern')">Password should be 4 to 12 characters and can include !@#$%.</div>
+        </div>
+        <label class=" custom-checkbox form__label form__checkbox-container" >
+            Active <input type="checkbox" name="isChecked" [(ngModel)]="isChecked" checked="isChecked"> 
+          </label>
+        <div>
+            <label class="form__label" for="roles">Roles:</label>
+        </div>
+       
+        <select class="form__label" id="roles" name="roles" [(ngModel)]="selectedRoles" multiple>
+            <ng-container *ngFor="let role of roles">
+                <option *ngIf="role" [value]="role">{{ role }}</option>
+            </ng-container>
+        </select>
+        
+    </form>
+</div>
