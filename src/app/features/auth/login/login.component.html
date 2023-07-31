@@ -6,7 +6,7 @@
       <div class="errmsg" [attr.aria-live]="'assertive'">{{ errorMessage }}</div>
       <form class="form" (ngSubmit)="onSubmit()">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username" class="form__input" [(ngModel)]="username" required />
+        <input type="text" id="username" name="username" class="form__input" [(ngModel)]="username" required  autoComplete="off"/>
   
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" class="form__input" [(ngModel)]="password" required />

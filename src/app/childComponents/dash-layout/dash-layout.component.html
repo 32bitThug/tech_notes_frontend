@@ -1,11 +1,16 @@
+<div *ngIf="errorMessage" class="errmsg">
+    {{ errorMessage}}
+  </div>
+<div>
 
 <div><header class="dash-header">
-    <div class="dash-header__container">
+    <div class="dash-header__container {{dashClass}}">
         <a href="/dash">
             <h1 class="dash-header__title">techNotes</h1>
         </a>
         <nav class="dash-header__nav">
             <!-- {/* add nav buttons later */} -->
+            <button class="btn btn-link" (click)="logout()" type="button" title="logout"><i class="fa-solid fa-right-from-bracket fa-3x"> </i></button>
         </nav>
     </div>
 </header>
