@@ -1,0 +1,25 @@
+<!-- handle error for  -->
+<div *ngIf="errorMessage" class="errmsg">
+    {{ errorMessage}}
+  </div>
+<div>
+
+    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form__title-row">
+            <h2>New Note</h2>
+            <button  type="submit" [disabled]="!loginForm.valid" title="save"
+            class=" form__title-row form__action-buttons btn btn-link"><i class="fas fa-save fa-3x"></i></button>
+        </div>
+        <label class="form__label" for="text" >Title:</label>
+        <input class="form__input" name="text" id="text" type="text" required [(ngModel)]="title"/>
+   
+        <label class="form__label" for="textArea">Text:</label>
+        <textarea class="form__input"name="text" id="textArea" cols="30" rows="10" required [(ngModel)]="text"></textarea>
+   
+        <label  class="form__label form__checkbox-container" for="userNames">ASSIGNED TO:</label>
+        <select  class="form__select" style="width: 200px; max-width: 100%;"    name="userNames" id="userNames" [(ngModel)]="selectedUserName" required ngModel>
+            <option *ngFor="let user of users" [value]="user.username">{{ user.username }}</option>
+          </select>
+          
+    </form>
+</div>

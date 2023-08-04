@@ -25,7 +25,6 @@ export class DashLayoutComponent implements OnInit {
     console.log('Current Path:', this.currentPath);
     if (!DASH_REGEX.test(this.currentPath) && !NOTES_REGEX.test(this.currentPath) && !USERS_REGEX.test(this.currentPath)) {
       this.dashClass = "dash-header__container--small";
-      console.log(this.dashClass)
       }
   }
 

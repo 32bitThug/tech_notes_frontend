@@ -7,6 +7,9 @@
     <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form__title-row">
             <h1>New User</h1>
+             
+        <button type="submit" [disabled]="!loginForm.valid" title="save"
+        class=" form__title-row form__action-buttons btn btn-link"><i class="fas fa-save fa-3x"></i></button>
         </div>
         <label class="form__label" for="username">Username:<span className="nowrap">[3-20 letters]</span></label>
         <input type="text" class="form__input" id='username' name='username' [(ngModel)]='username' required
@@ -32,13 +35,11 @@
         <div>
             <label  class="form__label"for="roles">Roles:</label>
         </div>
-            <select class="form__label" id="roles" name="roles" [(ngModel)]="selectedRoles" multiple>
-                <ng-container *ngFor="let role of roles">
+            <select style="width: 200px; max-width: 100%;" class="form__label" id="roles" name="roles" [(ngModel)]="selectedRoles" multiple>
+                <ng-container    *ngFor="let role of roles">
                     <option *ngIf="role" [value]="role">{{ role}}</option>
                 </ng-container>
             </select>
-        
-        <button type="submit" [disabled]="!loginForm.valid" title="save"
-            class=" form__title-row form__action-buttons btn btn-link"><i class="fas fa-save fa-3x"></i></button>
+       
     </form>
 </div>

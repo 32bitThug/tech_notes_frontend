@@ -16,7 +16,9 @@ import { WelcomeComponent } from './childComponents/dash-layout/welcome/welcome.
 import { HttpClientModule } from '@angular/common/http';
 import { NewUserComponent } from './childComponents/dash-layout/users/new-user/new-user.component';
 import { EditUserComponent } from './childComponents/dash-layout/users/edit-user/edit-user.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { NewNoteComponent } from './childComponents/dash-layout/notes/newNote/new-note/new-note.component';
+import { EditNoteComponent } from './childComponents/dash-layout/notes/edit-note/edit-note.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { FormsModule } from '@angular/forms'
     WelcomeComponent,
     NewUserComponent,
     EditUserComponent,
+    NewNoteComponent,
+    EditNoteComponent,
     
   ],
   imports: [

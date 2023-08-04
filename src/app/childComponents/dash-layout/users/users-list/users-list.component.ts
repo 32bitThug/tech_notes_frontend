@@ -4,16 +4,17 @@ import {  HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { interval, fromEvent } from 'rxjs';
 import { startWith, switchMap } from 'rxjs/operators'
+import { UserListService } from 'src/app/services/usersList/user-list.service';
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent {
-  private url='http://localhost:3500/users'
+  
   userList:any;
   errorMessage:string=""
-  constructor(private http: HttpClient,private router:Router){}
+  constructor(private http: HttpClient,private router:Router,private userService: UserListService){}
   ngOnInit() {
   this.getUsersList()
   interval(60000).subscribe(() => {
@@ -21,11 +22,10 @@ export class UsersListComponent {
   });
   }
    getUsersList(){
-    this.http.get(this.url).subscribe((res)=>{
+    this.userService.getUsersList().subscribe((res)=>{
       console.log(res);
       this.userList=res;
     }, (error) => {
-     
       console.error('Error fetching data:', error);
       this.errorMessage = error?.error?.message || 'An error occurred while creating the user.';
     })
