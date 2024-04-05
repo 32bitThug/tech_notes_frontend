@@ -11,8 +11,9 @@ import { WelcomeComponent } from './childComponents/dash-layout/welcome/welcome.
 
 import { NewUserComponent } from './childComponents/dash-layout/users/new-user/new-user.component';
 import { EditUserComponent } from './childComponents/dash-layout/users/edit-user/edit-user.component';
-
+import { EditNoteComponent } from './childComponents/dash-layout/notes/edit-note/edit-note.component';
 import { NewNoteComponent } from './childComponents/dash-layout/notes/newNote/new-note/new-note.component';
+
 const routes: Routes = [
   {path:'',component:LayoutComponent},
   {path:'login',component:LoginComponent},
@@ -21,7 +22,8 @@ const routes: Routes = [
     children:[
       {path:'',component:WelcomeComponent},
       {path:'notes',component:NotesListComponent},
-      {path:'notes/new',component:NewNoteComponent}, 
+      {path:'notes/new',component:NewNoteComponent},
+      {path:'notes/:id',component:EditNoteComponent} ,
       {path:'users',component:UsersListComponent},
       {path:'users/new',component:NewUserComponent},
       {path:'users/:id',component:EditUserComponent}

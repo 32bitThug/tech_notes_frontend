@@ -7,7 +7,7 @@ import { startWith, switchMap } from 'rxjs/operators'
 import { UserListService } from 'src/app/services/usersList/user-list.service';
 @Component({
   selector: 'app-users-list',
-  templateUrl: './users-list.component.html',
+  templateUrl:'./users-list.component.html',
   styleUrls: ['./users-list.component.css']
 })
 export class UsersListComponent {

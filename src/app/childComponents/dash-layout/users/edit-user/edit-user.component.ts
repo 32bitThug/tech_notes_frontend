@@ -72,7 +72,7 @@ export class EditUserComponent {
       response => {
         // Handle the response from the server if needed
         this.router.navigateByUrl('/dash/users');
-        console.log('User created:', response);
+        console.log('User updated:', response);
       },
       error => {
         // Handle error response from the server if needed

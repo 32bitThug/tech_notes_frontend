@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
@@ -17,17 +17,6 @@ export class NewUserComponent {
   errorMessage: string = '';
   constructor(private http:HttpClient,private router:Router){}
 
-  // ngOnInit() {
-
-  //   this.clearFormFields();
-  // }
-
-  // clearFormFields() {
-  //   this.username = '';
-  //   this.password = '';
-  //   this.selectedRoles = ['Employee'];
-  // }
-  
   onSubmit() {
     const newUser = {
       username: this.username,  

@@ -42,9 +42,9 @@ export class NotesListComponent {
     return this.datePipe.transform(date, 'dd MMM');
   }
   
-  editUser(note:any){
-    console.log(note)
-    this.router.navigate(['dash/notes/',note._id]);
+  editUser(id:string){
+    console.log(id)
+    this.router.navigate(['dash/notes/',id]);
   }
   // calls getUSer when window is on focus
   @HostListener('window:focus', ['$event'])

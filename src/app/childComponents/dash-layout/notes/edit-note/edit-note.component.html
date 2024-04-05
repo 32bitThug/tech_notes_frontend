@@ -1,1 +1,55 @@
-<p>edit-note works!</p>
+<div>
+    <div *ngIf="errorMessage" class="errmsg">
+        {{ errorMessage}}
+      </div>
+
+    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form__title-row">
+            <h2>Edit Note #{{ note.ticket }}</h2>
+            <div class="form__action-buttons">
+                
+                <button type="submit" [disabled]="!loginForm.valid" title="Save" class=" icon-button btn btn-link"><i class="fas fa-save fa-3x"></i></button>
+                <button type="button" (click)="onDeleteNote()" title="Delete" class=" icon-button btn btn-link"> <i class="fa-solid fa-trash-can fa-3x"></i></button>
+            </div>
+        </div>
+        <label class="form__label" for="note-title">Title:</label>
+         <input
+            class="form__input"
+            id="note-title"
+            name="title"
+            type="text"
+            autocomplete="off"
+            [(ngModel)]="note.title"
+        />
+
+        <label class="form__label" for="note-text">Text:</label>
+        <textarea
+            class="form__input form__input--text"
+            id="note-text"
+            name="text"
+            [(ngModel)]="note.text"
+        ></textarea>
+       
+        <div class="form__row">
+            <div class="form__divider">
+                <label class="form__label form__checkbox-container" for="note-completed">
+                    WORK COMPLETE:
+                    <input
+                        class="form__checkbox"
+                        id="note-completed"
+                        name="completed"
+                        type="checkbox"
+                        [(ngModel)]="note.completed"
+                    />
+                </label>
+               
+    
+            </div>
+            <div class="form__divider">
+                <p class="form__created">Created:<br />{{ note.createdAt | date:'MMMM d, y \'at\' h:mm:ss a' }}</p>
+                <!-- <p class="form__created">Created:<br />{{ note.createdAt || date:'MMMM d, y \'at\' h:mm:ss a'  }}</p> -->
+                <p class="form__updated">Updated:<br />{{ note.updatedAt | date:'MMMM d, y \'at\' h:mm:ss a'}}</p>
+            </div>
+        </div> 
+    </form>
+</div>

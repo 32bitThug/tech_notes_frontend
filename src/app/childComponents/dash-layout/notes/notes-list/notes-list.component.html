@@ -22,7 +22,7 @@
           <td>{{ formatDate(item.updatedAt) }}</td>
           <td>{{ item.title}}</td>
           <td>{{ item.username }}</td>
-          <td ><button (click)="editUser(item)" type="button" class="btn btn-link" ><i class="fas fa-edit"></i></button></td>
+          <td ><button (click)="editUser(item._id)" type="button" class="btn btn-link" ><i class="fas fa-edit"></i></button></td>
         </tr>
       </tbody>
     </table>
